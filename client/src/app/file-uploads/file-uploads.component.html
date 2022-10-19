@@ -1,0 +1,36 @@
+
+<!--<p-fileUpload-->
+<!--  name="myfile"-->
+<!--  url="./downloads"-->
+<!--  [multiple]="true"-->
+<!--  [auto]="true">-->
+
+<!--</p-fileUpload>-->
+<!--<p-button label="Click" ></p-button>-->
+
+<form
+  (ngSubmit)="onSubmit()"
+      #form="ngForm"
+>
+  <input
+         (change)="onFileChange($event)"
+         type="file"
+         name="file"
+         id="file"
+         multiple="true"
+  />
+<button type="submit" class="btn btn-info" (submit)="onSubmit()">submit </button>
+  <div *ngIf="files">
+  {{message}}
+</div>
+</form>
+
+<div>
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>
+</div>
