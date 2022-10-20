@@ -1,0 +1,15 @@
+h1{
+  padding:1rem;
+  border: 2px solid gray;
+  text-transform:uppercase;
+  box-shadow: 10px 5px 5px #888;
+}
+
+span{
+  color: #f10ee0;
+
+}
+
+.file-uploads{
+  margin-top: 3rem;
+}

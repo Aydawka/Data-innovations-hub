@@ -18,20 +18,19 @@ def allowed_file(filename):
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
-    if request.method == 'POST':
-        file = request.files['file']
-        if  file.filename == '':
-            raise "error"
-            return ' file cannot be empty'
-        if  file and allowed_file(file.filename):
-            files = request.files.getlist("file")
-            for file in files:
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-            return "we got success"
-    return "method isnt correct"
+    files = request.files.getlist("file")
 
+      # check if each file is allowed
+        # fir each file in files check allowed_file
+    for file in files:
+        if not allowed_file(file.filename):
+            response = jsonify("catastrophic failure!!!1111!!!!11")
+            response.status_code = 422
+            return response
+    for file in files:
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
 
-
+    return jsonify("Files have been successfully saved.")
 
 
 @app.route('/test', methods=['GET'])
