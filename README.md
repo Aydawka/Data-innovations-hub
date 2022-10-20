@@ -1,7 +1,8 @@
 # Data-innovations-hub
-Purpose of the Data-innovations-hub is to store and publicly share the data. The app is created using Angular as a front-end and the Flask as a backend. This app allows users to select some files from their computer and click on an upload button to upload them. Once users click on an upload button to initiate the upload, it sends paths of selected files to the Flask app with POST request. The upload process consists of the writing the transferred file data to the Downloads folder. If data is successfully saved on a local folder, users will be able to see an information message. If users submit a forbidden type of data, they will see the error message and system will prevent them to submit files.
+Purpose of the Data-innovations-hub is to store and publicly share the data. The app is created using Angular as a front-end and the Flask as a backend. This app allows users to select some files from their computer and click on an upload button to upload them. Once users click on an upload button to initiate the upload, it sends the selected files to the Flask app with POST request. The upload process consists of the writing the transferred file data to the Downloads folder. If data is successfully saved on a local folder, users will be able to see an information message. If users submit a forbidden type of data, they will see the error message and system will prevent them to submit files.
 
-# In summary, the app allows users to do the following:
+# Features and functionality
+The application allows the user to do the following:
 * Select files to be uploaded
 * View a list of files that have been selected
 * Reset button to reset whole system 
@@ -17,7 +18,7 @@ your upload endpoint.
     * images
     * Microsoft documents
     * text documents
-* To avoid repetition of the saving files, in case file name and type already exist in the corresponding folder, new file will override the previus one.
+* To avoid repetition of the saving files, in case file name and type already exist in the corresponding folder, new file will override the previous one.
 
 # Proxy
 
