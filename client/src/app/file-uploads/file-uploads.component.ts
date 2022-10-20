@@ -3,7 +3,7 @@ import {ClientConnectionService} from "../services/client-connection.service";
 import {MessageService} from "primeng/api";
 import {catchError, Observable, of, throwError} from "rxjs";
 import {Files} from "../models/files";
-
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-file-uploads',
@@ -27,7 +27,11 @@ export class FileUploadsComponent{
     console.log(event);
   }
 
-  public onSubmit(){
+  public onSubmit(): void{
+
+    if(!this.files.length)
+      return;
+
     this.clientConnection.uploadFiles(this.files)
       .pipe(
         catchError(
@@ -44,38 +48,23 @@ export class FileUploadsComponent{
         (message: string)=>
         {
           this.message=message;
-          console.log(message);
+          this.error = '';
         }
       )
   }
 
-  // public submit(){
-  //   this.onSubmit()
-  //     .subscribe(
-  //       res => {
-  //         console.log(res);
-  //         if (res.status == 200) {
-  //           return "success"
-  //         }
-  //         else {
-  //           alert(res.status)
-  //         }
-  //       },
-  //       err => alert(err)
-  //     );
-  // }
-
-
-  //primeng
-  uploadedFiles: any[] = [];
-  //primeng function
-  public onUpload(event:any) {
-    for(let file of event.files) {
-      this.uploadedFiles.push(file);
-    }
-
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+  public reset(){
+    let r=this.files=[];
+    let s=this.message='';
+    let a= this.error=''
+    return r||s||a
   }
-//primeng function finishes
 
+
+ public delete(file:any){
+   const index = this.files.indexOf(file, 0);
+   this.files.splice(index, 1);
+
+
+ }
 }

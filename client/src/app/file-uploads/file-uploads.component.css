@@ -1,0 +1,36 @@
+.file-uploads{
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  background: #abaaaa;
+  margin: 1rem 0 1rem 0;
+}
+
+input::file-selector-button {
+  font-weight: bold;
+  color: #F10EE0FF;
+  border: thin solid #e5dbdb;
+  border-radius: 3px;
+  padding:1.2rem 3rem 1.2rem 3rem;
+}
+
+input[type='file'] {
+  color: transparent;
+}
+
+
+
+.btn{
+  margin-right: 1rem;
+  width: 12rem;
+}
+
+.btn{
+  font-weight: bold;
+  color: #F10EE0FF;
+  border: thin solid #e5dbdb;
+  border-radius: 3px;
+  padding:1.2rem 3rem 1.2rem 3rem;
+}
+.empty-upload{color: #e15656
+}

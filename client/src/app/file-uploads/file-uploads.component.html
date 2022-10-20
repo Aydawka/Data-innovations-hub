@@ -1,36 +1,39 @@
+<form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
 
-<!--<p-fileUpload-->
-<!--  name="myfile"-->
-<!--  url="./downloads"-->
-<!--  [multiple]="true"-->
-<!--  [auto]="true">-->
 
-<!--</p-fileUpload>-->
-<!--<p-button label="Click" ></p-button>-->
-
-<form
-  (ngSubmit)="onSubmit()"
-      #form="ngForm"
->
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+    <div class="alert alert-success" role="alert" *ngIf="message">
+      {{message}}
+    </div>
+  <div class="file-uploads">
   <input
-         (change)="onFileChange($event)"
-         type="file"
-         name="file"
-         id="file"
-         multiple="true"
+    (change)="onFileChange($event)"
+    type="file"
+    name="file"
+    required
+    id="file"
+    multiple
+    #filesInput
   />
-<button type="submit" class="btn btn-info" (submit)="onSubmit()">submit </button>
-  <div *ngIf="files">
-  {{message}}
-</div>
+  <div class="buttons">
+    <div>
+      <button type="submit" class="btn btn-light submit">Submit</button>
+      <button type="submit" class="btn btn-light reset" (click)="reset()">Reset</button>
+      <button type="button" class="btn btn-light clear" (click)="(files = []) && (filesInput.value = '')">Clear the list</button>
+    </div>
+    <div class="empty-upload" *ngIf="uploadForm.submitted && !files.length">Please choose file(s)</div>
+  </div>
+  </div>
+
+
+
 </form>
 
-<div>
+<div *ngFor="let fil of files">
   <ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
+    <li class="list-group-item">{{fil.name}} <button (click)="delete(fil)"><i class="pi pi-times"></i></button></li>
+
   </ul>
 </div>
