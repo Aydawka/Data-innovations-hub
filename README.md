@@ -10,16 +10,16 @@ It returns a success or reject response to the users in the front end, from the 
 
 
 # In summary, the app allow users to do the following:
- Markup : * Select files to be uploaded
-          * View a list of files that have been selected
-          * Clear all selected files
-          * Resetting the whole system
-          * Click on an upload button to initiate the upload (send paths of selected files to the Flask
-          app)
-          * Write the transferred file data to your local ‘Downloads’ folder (this part is
-          handled through Flask)
-          * Inform the user when the upload is completed and show them the response provided by
-          your upload endpoint
+* Select files to be uploaded
+* View a list of files that have been selected
+* Clear all selected files
+* Resetting the whole system
+* Click on an upload button to initiate the upload (send paths of selected files to the Flask
+app)
+* Write the transferred file data to your local ‘Downloads’ folder (this part is
+handled through Flask)
+* Inform the user when the upload is completed and show them the response provided by
+your upload endpoint
 Note:
 Both portions (front end and back end) can be run on localhost. In order to run client service on localhost, proxy configuration is needed to set up with the following 
 code:
