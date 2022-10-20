@@ -23,7 +23,7 @@ Both portions (front end and back end) can be run on localhost. In order to run 
                                                   ``` ng serve --proxy-config proxy.conf.json ```
 
 # System interface
-![image](https://user-images.githubusercontent.com/62059163/196989761-14f30c2c-6846-486c-8793-557ecf1fa6c2.png)
+![image](https://user-images.githubusercontent.com/62059163/197042255-9dc45752-c973-451f-b71e-13581c352ba7.png)
 # Saved files
-![image](https://user-images.githubusercontent.com/62059163/196989899-f506a719-5400-4a9b-aa5b-c2c5a20031e7.png)
+![image](https://user-images.githubusercontent.com/62059163/197042377-2238d7f4-4a55-45d3-914f-ed95fe959e0c.png)
 
