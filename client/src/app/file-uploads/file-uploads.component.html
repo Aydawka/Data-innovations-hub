@@ -20,13 +20,11 @@
   <div class="buttons">
     <div>
       <button type="submit" class="btn btn-light submit">Submit</button>
-      <button type="submit" class="btn btn-light reset" (click)="reset()">Reset</button>
-      <button type="button" class="btn btn-light clear" (click)="(files = []) && (filesInput.value = '')">Clear the list</button>
+      <button type="button" class="btn btn-light reset" (click)="reset()">Reset</button>
     </div>
     <div class="empty-upload" *ngIf="uploadForm.submitted && !files.length">Please choose file(s)</div>
   </div>
   </div>
-
 
 
 </form>

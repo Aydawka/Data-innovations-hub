@@ -34,3 +34,6 @@ input[type='file'] {
 }
 .empty-upload{color: #e15656
 }
+
+li{display: flex;
+  justify-content: space-between;}
