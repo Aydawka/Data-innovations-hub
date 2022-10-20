@@ -14,7 +14,9 @@ your upload endpoint.
 
 # Constraints
 *	To prevent to upload malicious files to the folder, system validates the types of files. Therefore, client serve will only accept files which have the following file types:
-.png, .jpeg, .docx, .pdf, .ppt, and .txt.
+    * images
+    * Microsoft documents
+    * text documents
 * To avoid repetition of the saving files, in case file name and type already exist in the corresponding folder, new file will override the previus one.
 
 # Proxy
