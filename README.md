@@ -13,13 +13,14 @@ your upload endpoint.
 your upload endpoint.
 
 # Constraints
-*	To prevent to upload malicious files to the folder, system validates the types of files. Therefore, client serve will only accept files which have the following extensions:
+*	To prevent to upload malicious files to the folder, system validates the types of files. Therefore, client serve will only accept files which have the following file types:
 .png, .jpeg, .docx, .pdf, .ppt, and .txt.
-* To avoid repetition of the saving files, after uploading the file to the local folder, all files will be removed from the list.
-*	If user did not submit any file, client side will prevent them to submit empty files. The users will be informed with a proper validation message.
+* To avoid repetition of the saving files, in case file name and type already exist in the corresponding folder, new file will override the previus one.
 
-#Proxy
-Both portions (front end and back end) can be run on localhost. In order to run client service on localhost, proxy configuration is needed to set up on the proxy.conf.json file and with the following code:
+# Proxy
+
+Both portions (front end and back end) can be run on localhost. 
+If they are running under different origins, to run client service on localhost, proxy configuration is needed to set up on the proxy.conf.json file and with the following code:
                                                   ``` ng serve --proxy-config proxy.conf.json ```
 
 # System interface
