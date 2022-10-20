@@ -37,6 +37,9 @@ export class FileUploadsComponent implements AfterViewInit{
     let target = event.target as HTMLInputElement;
     this.files = Array.from(target.files ? target.files : []);
     console.log(event);
+
+    this.message='';
+    this.error='';
   }
 
   //sending files to Flask
@@ -49,10 +52,7 @@ export class FileUploadsComponent implements AfterViewInit{
         catchError(
           (error) =>
           {
-            let e = error.error instanceof ErrorEvent ? error.error : this.getServerMessage(error);
-            this.error = e.message;
-
-            console.log(e);
+            this.error = this.getServerMessage(error);
             throw error;
           }
         )
@@ -62,14 +62,14 @@ export class FileUploadsComponent implements AfterViewInit{
         {
           this.reset();
           this.message=message;
-
         }
       )
   }
 
   //display message if forbidden type of data is entered
   public getServerMessage(error: HttpErrorResponse): string {
-      switch (error.status) {
+
+    switch (error.status) {
         case 404: {
           return `Not Found: ${error.message}`;
         }
@@ -79,10 +79,13 @@ export class FileUploadsComponent implements AfterViewInit{
         case 500: {
           return `Internal Server Error: ${error.message}`;
         }
-        default: {
-          return `Unknown Server Error: ${error.message}`;
+        case 422: {
+          return `${error.error}`;
         }
       }
+
+    let e = error.error instanceof ErrorEvent ? error.error : error;
+    return `Unknown Error: ${e.message}`;
 
   }
 // to reset whole system they
