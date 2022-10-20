@@ -7,26 +7,45 @@ from flask import request
 app = Flask(__name__)
 app.secret_key = "datainnovationshub_key"
 UPLOAD_FOLDER = './downloads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','docx', 'ppt'}
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+def allowed_file(file) -> bool:
+    allowed_file = {
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'application/vnd.ms-powerpoint',
+    'image/jpeg',
+    'application/pdf',
+    'image/png',
+    "image/avif",
+    "image/jfif",
+    "image/gif",
+    "application/msword",
+    "application/vnd.ms-excel",
+    "x-mspublisher",
+    "application/vnd.ms-powerpoint",
+    "wordprocessingml.document",
+    "application/presentationml.presentation",
+    "application/presentationml.slideshow",
+    }
+    mimetype = file.content_type
+    return mimetype in allowed_file
+    print(mimetype)
+
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
     files = request.files.getlist("file")
-
-      # check if each file is allowed
-        # fir each file in files check allowed_file
     for file in files:
-        if not allowed_file(file.filename):
-            response = jsonify("catastrophic failure!!!1111!!!!11")
+        if not allowed_file(file):
+            response = jsonify("File type is not allowed: " + file.filename)
             response.status_code = 422
             return response
+
     for file in files:
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
 
