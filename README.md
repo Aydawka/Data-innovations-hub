@@ -24,3 +24,9 @@ Note:
 Both portions (front end and back end) can be run on localhost. In order to run client service on localhost, proxy configuration is needed to set up with the following 
 code:
 ng serve --proxy-config proxy.conf.json
+
+
+![image](https://user-images.githubusercontent.com/62059163/196989761-14f30c2c-6846-486c-8793-557ecf1fa6c2.png)
+# Saved files
+![image](https://user-images.githubusercontent.com/62059163/196989899-f506a719-5400-4a9b-aa5b-c2c5a20031e7.png)
+
