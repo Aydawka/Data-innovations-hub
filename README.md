@@ -20,11 +20,43 @@ your upload endpoint.
     * text documents
 * To avoid repetition of the saving files, in case file name and type already exist in the corresponding folder, new file will override the previous one.
 
-# Proxy
+# Local build and execution
 
-Both portions (front end and back end) can be run on localhost. 
-If they are running under different origins, to run client service on localhost, proxy configuration is needed to set up on the proxy.conf.json file and with the following code:
-                                                  ``` ng serve --proxy-config proxy.conf.json ```
+## Requirements
+* Python 3.9
+* NodeJS 16
+
+```
+# Clone the repository
+git clone https://github.com/Aydawka/Data-innovations-hub.git
+```
+
+## Server
+
+```
+# Change to the server directory from project directory
+cd Data-innovations-hub/server
+
+# Install Flask
+pip install Flask
+
+# Start the Flask development server on localhost
+flask run -h 127.0.0.1 -p 5000
+```
+
+## Client
+
+```bash
+# Change to the client directory from project directory
+cd Data-innovations-hub/client
+
+# Install dependencies
+npm install
+
+# Start Angular development server on localhost
+# The proxy configuration is needed as the server resides on a different origin
+ng serve --host 127.0.0.1 --port 4200 --proxy-config proxy.conf.json --open
+```
 
 # System interface
 ![image](https://user-images.githubusercontent.com/62059163/197043306-1d7ff8d8-8fad-445b-b664-32bd4e97f79d.png)
